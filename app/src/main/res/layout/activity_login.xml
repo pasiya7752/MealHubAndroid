@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/R"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="321dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="208dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="33dp"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="277dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:ems="10"
+            android:hint="E-mail"
+
+            android:inputType="textEmailAddress"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="274dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/Connect"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="123dp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/loginbutton"
+        android:text="Connect" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="374dp"
+            android:layout_height="72dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="125dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginRight="54dp"
+            android:fontFamily="@font/loveyalikeasis"
+            android:text="Sign In"
+            android:textAlignment="center"
+            android:textColor="#FF3E3F"
+            android:textSize="32sp" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="186dp"
+        android:text="Forgot Password"
+        android:fontFamily="@font/loveyalikeasis"
+        android:textColor="#FFB42A"
+        android:textSize="18dp"/>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="76dp"
+        android:layout_marginRight="76dp"
+        android:layout_marginBottom="93dp"
+        android:fontFamily="@font/loveyalikeasis"
+        android:text="Not Connected Yet?"
+        android:textColor="#FFB42A"
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/signup"
+        android:layout_width="134dp"
+        android:layout_height="31dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginBottom="86dp"
+        android:fontFamily="@font/loveyalikeasis"
+        android:text="Sign Up"
+        android:textColor="#FF3E3F"
+        android:textSize="16dp" />
+
+    <LinearLayout
+        android:layout_width="110dp"
+        android:layout_height="62dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="149dp"
+        android:layout_marginLeft="149dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@drawable/logo" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

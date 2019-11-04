@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/R"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:textAlignment="center"
+        >
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/loveyalikeasis"
+            android:gravity="center"
+            android:text="Nearby Restaurants"
+            android:textAlignment="center"
+            android:textColor="#FF3E3F"
+            android:textSize="22dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#c0c0c0"/>
+
+
+
+        <LinearLayout
+            android:id="@+id/parentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:padding="15dp"-->
+                <!--android:layout_height="118dp"-->
+                <!--android:layout_gravity="left"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/imageView2"-->
+                    <!--android:layout_width="69dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="left"-->
+                    <!--android:layout_weight="1"-->
+                    <!--tools:srcCompat="@tools:sample/avatars[3]" />-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_marginLeft="20dp"-->
+                    <!--android:orientation="vertical">-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="41dp"-->
+                        <!--android:text="Restaurant Name"-->
+                        <!--android:textSize="25dp" />-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="118dp"-->
+                        <!--android:layout_gravity="left"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="41dp"-->
+                            <!--android:text="dist:2KM"-->
+                            <!--android:textSize="25dp" />-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="41dp"-->
+                            <!--android:layout_marginLeft="20dp"-->
+                            <!--android:text="HS: 6.78"-->
+                            <!--android:textSize="25dp" />-->
+                    <!--</LinearLayout>-->
+
+
+                <!--</LinearLayout>-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:padding="15dp"-->
+                <!--android:layout_height="118dp"-->
+                <!--android:layout_gravity="left"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/imageView2"-->
+                    <!--android:layout_width="69dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="left"-->
+                    <!--android:layout_weight="1"-->
+                    <!--tools:srcCompat="@tools:sample/avatars[3]" />-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_marginLeft="20dp"-->
+                    <!--android:orientation="vertical">-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="41dp"-->
+                        <!--android:text="Restaurant Name"-->
+                        <!--android:textSize="25dp" />-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="118dp"-->
+                        <!--android:layout_gravity="left"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="41dp"-->
+                            <!--android:text="dist:2KM"-->
+                            <!--android:textSize="25dp" />-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="41dp"-->
+                            <!--android:layout_marginLeft="20dp"-->
+                            <!--android:text="HS: 6.78"-->
+                            <!--android:textSize="25dp" />-->
+                    <!--</LinearLayout>-->
+
+
+                <!--</LinearLayout>-->
+
+            <!--</LinearLayout>-->
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/logo"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"/>
+</RelativeLayout>
+
+

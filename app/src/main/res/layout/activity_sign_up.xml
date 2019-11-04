@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/R"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="374dp"
+            android:layout_height="72dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginRight="54dp"
+            android:fontFamily="@font/loveyalikeasis"
+            android:gravity="top"
+            android:text="Sign Up"
+            android:textAlignment="center"
+            android:textColor="#FF3E3F"
+            android:textSize="32sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="84dp">
+
+        <EditText
+            android:id="@+id/fname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="First name"
+            android:fontFamily="@font/loveyalikeasis"
+            android:inputType="textPersonName"
+            android:textColorHint="#4D4A4A" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="130dp">
+
+        <EditText
+            android:id="@+id/lname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Last name"
+            android:fontFamily="@font/loveyalikeasis"
+            android:inputType="textPersonName"
+            android:textColorHint="#4D4A4A" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="182dp">
+
+        <EditText
+            android:id="@+id/uname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Username"
+            android:fontFamily="@font/loveyalikeasis"
+            android:inputType="textPersonName"
+            android:textColorHint="#4D4A4A" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="235dp">
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="E-mail"
+            android:fontFamily="@font/loveyalikeasis"
+            android:inputType="textPersonName"
+            android:textColorHint="#4D4A4A" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="287dp">
+
+        <EditText
+            android:id="@+id/mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Mobile number"
+            android:fontFamily="@font/loveyalikeasis"
+            android:inputType="phone"
+            android:textColorHint="#4D4A4A" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="339dp">
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Password"
+            android:fontFamily="@font/loveyalikeasis"
+            android:inputType="textPassword"
+            android:textColorHint="#4D4A4A" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="392dp">
+
+        <EditText
+            android:id="@+id/repassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Retype password"
+            android:fontFamily="@font/loveyalikeasis"
+            android:inputType="textPassword"
+            android:textColorHint="#4D4A4A" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="444dp">
+
+        <Button
+            android:id="@+id/nextbtn"
+            android:layout_width="148dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/signupbutton"
+            android:text="Next"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="34dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:layout_marginBottom="37dp">
+
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="@font/loveyalikeasis"
+            android:text="Already have an account?"
+            android:textColor="#FFB42A"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/signin"
+            android:layout_width="134dp"
+            android:layout_height="31dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="22dp"
+            android:layout_marginRight="22dp"
+            android:layout_marginBottom="86dp"
+            android:fontFamily="@font/loveyalikeasis"
+            android:text="Sign In"
+            android:textColor="#FF3E3F"
+            android:textSize="16dp" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

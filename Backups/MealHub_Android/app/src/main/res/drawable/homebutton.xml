@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#F0E68C"/>
+            <!--stroke create dot by 2dp width 2dp gap and 2dp height-->
+            <stroke
+                android:color="#DC143C"
+                android:width="2dp"
+                android:dashWidth="2dp"
+                android:dashGap="2dp"
+                />
+
+            <gradient
+                android:angle="225"
+                android:startColor="#FFB42A"
+                android:endColor="#FFB42A"/>
+            <corners
+                android:bottomLeftRadius="15dp"
+                android:bottomRightRadius="15dp"
+                android:topLeftRadius="15dp"
+                android:topRightRadius="15dp" />
+        </shape>
+    </item>
+</selector>
