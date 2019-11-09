@@ -1,13 +1,6 @@
 package com.example.mealhubandroid;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentActivity;
-
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,12 +13,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.mealhubandroid.Models.MealVM;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.example.mealhubandroid.Models.ServiceProviderVM;
-import com.example.mealhubandroid.Services.MealApiService;
 import com.example.mealhubandroid.Services.ServiceProviderApiService;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -38,7 +34,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -70,6 +65,10 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
     private Button option2;
     private Button option3;
     private Button option4;
+    private Button logout;
+    private TextView welcome;
+    private TextView calorieRequirement;
+    private LinearLayout welcomeView;
 
     private ServiceProviderApiService serviceProviderApiService = new ServiceProviderApiService();
     private List<ServiceProviderVM> serviceProviderVMS;
@@ -111,15 +110,21 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-//        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-//        String name = prefs.getString("username", "No name defined");//"No name defined" is the default value.
-//
-//        Toast.makeText(this, "asdsads"+name, Toast.LENGTH_SHORT).show();
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        String name = prefs.getString("username", " ");//"No name defined" is the default value.
+        String cal = prefs.getString("calorieRequirement", " ");//"No name defined" is the default value.
+
 
         option1=(Button) findViewById(R.id.op1);
         option2=(Button) findViewById(R.id.op2);
         option3=(Button) findViewById(R.id.op3);
         option4=(Button) findViewById(R.id.op4);
+        logout=(Button) findViewById(R.id.logoutbtn);
+        welcome=(TextView) findViewById(R.id.welcomeText);
+        calorieRequirement=(TextView) findViewById(R.id.calorieRequirement);
+        welcomeView=(LinearLayout) findViewById(R.id.welcomeView);
+
+        welcomeView.bringToFront();
 
         option1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,8 +150,15 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                 createHealthProfileOnClick();
             }
         });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signOut();
+            }
+        });
 
-
+        welcome.setText("Welcome, "+name+"!");
+        calorieRequirement.setText("Limit = "+cal+"kcal");
         // Retrieve location and camera position from saved instance state.
         if (savedInstanceState != null) {
             mLastKnownLocation = savedInstanceState.getParcelable(KEY_LOCATION);
@@ -578,4 +590,16 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
             Log.e("Exception: %s", e.getMessage());
         }
     }
+
+    public void signOut()
+    {
+
+        Intent intent = new Intent(HomeActivity.this,LoginActivity.class);
+        SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+        editor.clear();
+        editor.commit();
+        startActivity(intent);
+
+    }
+
 }

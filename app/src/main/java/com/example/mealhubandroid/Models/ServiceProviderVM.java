@@ -22,6 +22,7 @@ public class ServiceProviderVM {
     }
 
     public ServiceProviderVM(
+            String id,
             String firstName,
             String lastName,
             String companyName,
@@ -29,6 +30,7 @@ public class ServiceProviderVM {
             int contactNo,
             double[] location)
     {
+        this.id = id;
         this.firstName=firstName;
         this.lastName=lastName;
         this.companyName=companyName;
@@ -47,6 +49,14 @@ public class ServiceProviderVM {
 
     public void setContactNo(int contactNo) {
         this.contactNo = contactNo;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFirstName() {

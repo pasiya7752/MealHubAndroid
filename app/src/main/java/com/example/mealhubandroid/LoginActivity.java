@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private Button Connect;
     private TextView SignUp;
+    CheckBox keepMe;
+
+    boolean isKeepMeChecked=false;
     UserAuthenticationService userAuthenticationService;
     public static final String MY_PREFS_NAME = "MyPrefsFile";
     @Override
@@ -34,8 +38,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
+        keepMe = (CheckBox) findViewById(R.id.keepLoggedIn);
         Connect=(Button)findViewById(R.id.Connect);
         SignUp=(TextView) findViewById(R.id.signup);
+
 
         Connect.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,14 +60,31 @@ public class LoginActivity extends AppCompatActivity {
 
         userAuthenticationService = APIUtils.getUserAuthenticationService();
 
+        keepMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setBoolean();
+            }
+        });
+
 
     }
 
+    public void setBoolean()
+    {
+        if(keepMe.isChecked())
+        {
+            isKeepMeChecked = true;
+        }
+        else
+            {
+            isKeepMeChecked = false;
+        }
+    }
     public void onConnect()
     {
         EditText username = (EditText) findViewById(R.id.username);
         EditText password = (EditText) findViewById(R.id.password);
-
 
         LoginRequest loginRequest = new LoginRequest();
 
@@ -81,11 +105,16 @@ public class LoginActivity extends AppCompatActivity {
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
-                        SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-                        editor.putString("username",response.body().getUserName());
-                        editor.putBoolean("isLoggedIn",true);
-                        editor.apply();
-                        editor.commit();
+                        if(isKeepMeChecked)
+                        {
+                            SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                            editor.putString("username",response.body().getUserName());
+                            editor.putString("calorieRequirement",Long.toString(response.body().getDailyCalorieRequirement()));
+                            editor.putBoolean("isLoggedIn",true);
+                            editor.apply();
+                            editor.commit();
+                        }
+
                         startActivity(intent);
                     }
                     else {

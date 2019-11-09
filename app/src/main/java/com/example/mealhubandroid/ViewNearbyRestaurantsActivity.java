@@ -1,40 +1,29 @@
 package com.example.mealhubandroid;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.location.Location;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.mealhubandroid.Models.ServiceProviderVM;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.GeoDataClient;
 import com.google.android.gms.location.places.PlaceDetectionClient;
-import com.google.android.gms.location.places.Places;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.mikhaellopez.circularimageview.CircularImageView;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONException;
 
 import java.util.List;
 
@@ -58,7 +47,6 @@ public class ViewNearbyRestaurantsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_nearby_restaurants);
 
         serviceProviderVMS= new Gson().fromJson(getIntent().getSerializableExtra("MyClass").toString(), new TypeToken<List<ServiceProviderVM>>(){}.getType());
-
 //        getIntent().getSerializableExtra("MyClass");
 
 
@@ -73,6 +61,8 @@ public class ViewNearbyRestaurantsActivity extends AppCompatActivity {
         parentLayout.removeAllViews();
         for(int i=0;i<serviceProviderVMS.size();i++)
         {
+
+            final int j = i;
 
             LinearLayout layout = new LinearLayout(this);
             LinearLayout.LayoutParams params0=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 130);
@@ -109,12 +99,24 @@ public class ViewNearbyRestaurantsActivity extends AppCompatActivity {
             layout3.setOrientation(LinearLayout.HORIZONTAL);
             layout3.setLayoutParams(params1);
 
-            TextView dist = new TextView(this);
+            Button dist = new Button(this);
             LinearLayout.LayoutParams params2=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 70);
             dist.setLayoutParams(params2);
             dist.setTextColor(Color.parseColor("red"));
-            dist.setTextSize(22);
-            dist.setText("Open now");
+            dist.setTextSize(12);
+            dist.setText("Go in");
+            dist.setTypeface(Typeface.create("@font/loveyalikeasis", Typeface.NORMAL));
+
+            dist.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(ViewNearbyRestaurantsActivity.this,RestaurantViewerActivity.class);
+
+                    intent.putExtra("serviceProvider", new Gson().toJson(serviceProviderVMS.get(j)));
+
+                    startActivity(intent);
+                }
+            });
 
             TextView HS = new TextView(this);
             LinearLayout.LayoutParams params3=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 70);

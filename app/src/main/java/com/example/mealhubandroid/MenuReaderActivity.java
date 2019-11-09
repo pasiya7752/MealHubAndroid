@@ -1,17 +1,26 @@
 package com.example.mealhubandroid;
 
 import android.Manifest;
-
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.mealhubandroid.Models.FileInfo;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.mealhubandroid.Models.NutritionDataVM;
-import com.example.mealhubandroid.R;
 import com.example.mealhubandroid.Services.APIUtils;
 import com.example.mealhubandroid.Services.FileService;
-import com.example.mealhubandroid.Services.MenuReaderApiService;
 import com.google.gson.Gson;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
@@ -21,30 +30,11 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.PermissionRequestErrorListener;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.MediaScannerConnection;
-import android.net.Uri;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
-
 import java.util.List;
 
 import okhttp3.MediaType;
@@ -94,8 +84,6 @@ public class MenuReaderActivity extends AppCompatActivity {
 
     private void generateSuggestions()
     {
-        MenuReaderApiService menuReaderApiService = new MenuReaderApiService();
-
         System.out.println(path);
 
         uploadToServer(path);
@@ -249,8 +237,6 @@ public class MenuReaderActivity extends AppCompatActivity {
                 Intent intent = new Intent(MenuReaderActivity.this,GeneratedFoodNutritionResultsActivity.class);
                 intent.putExtra("NutritionVMs", new Gson().toJson(response.body()));
                 startActivity(intent);
-
-
             }
 
             @Override
@@ -259,6 +245,5 @@ public class MenuReaderActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }

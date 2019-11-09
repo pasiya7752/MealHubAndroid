@@ -24,4 +24,9 @@ public class APIUtils {
         return NetworkClient.getRetrofitClient(API_URL).create(UserAuthenticationService.class);
     }
 
+    public static RestaurantMealService getRestaurantMealService()
+    {
+        return NetworkClient.getRetrofitClient(API_URL).create(RestaurantMealService.class);
+    }
+
 }
