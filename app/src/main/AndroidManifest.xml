@@ -20,7 +20,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ReviewPanelActivity"></activity>
+        <activity android:name=".LogExcerciseActivity"></activity>
+        <activity android:name=".LogFoodActivity" />
+        <activity android:name=".HealthAnalysisMainActivity" />
+        <activity android:name=".ReviewPanelActivity" />
         <activity android:name=".RestaurantViewerActivity" />
         <activity android:name=".CreateMealPlanActivity" />
         <activity android:name=".GeneratedFoodNutritionResultsActivity" />

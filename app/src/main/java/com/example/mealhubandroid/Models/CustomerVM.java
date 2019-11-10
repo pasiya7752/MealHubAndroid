@@ -17,49 +17,43 @@ public class CustomerVM {
     int age;
     BigDecimal height;
     BigDecimal weight;
-    BigDecimal activityLevel;
+    String activityLevel;
     String healthCondition;
-    long dailyCalorieRequirement;
+    BigDecimal dailyCalorieRequirement;
+    String bmi;
 
     public CustomerVM() {
 
     }
 
-    public CustomerVM(String firstName, String lastName, String userName, String email, int mobile, String password,String healthCondition, int age, BigDecimal height, BigDecimal weight, BigDecimal activityLevel, long dailyCalorieRequirement,String gender) {
+    public CustomerVM(String id, String firstName, String lastName, String userName, String email, int mobile, String gender, String password, int age, BigDecimal height, BigDecimal weight, String activityLevel, String healthCondition, BigDecimal dailyCalorieRequirement, String bmi) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.email = email;
         this.mobile = mobile;
+        this.gender = gender;
         this.password = password;
-        this.gender=gender;
         this.age = age;
         this.height = height;
         this.weight = weight;
         this.activityLevel = activityLevel;
+        this.healthCondition = healthCondition;
         this.dailyCalorieRequirement = dailyCalorieRequirement;
-        this.healthCondition=healthCondition;
+        this.bmi = bmi;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;
-    }
-
-    public String getHealthCondition() {
-        return healthCondition;
-    }
-
-    public void setHealthCondition(String healthCondition) {
-        this.healthCondition = healthCondition;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
     public void setFirstName(String firstName) {
@@ -98,6 +92,14 @@ public class CustomerVM {
         this.mobile = mobile;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -130,19 +132,35 @@ public class CustomerVM {
         this.weight = weight;
     }
 
-    public BigDecimal getActivityLevel() {
+    public String getActivityLevel() {
         return activityLevel;
     }
 
-    public void setActivityLevel(BigDecimal activityLevel) {
+    public void setActivityLevel(String activityLevel) {
         this.activityLevel = activityLevel;
     }
 
-    public long getDailyCalorieRequirement() {
+    public String getHealthCondition() {
+        return healthCondition;
+    }
+
+    public void setHealthCondition(String healthCondition) {
+        this.healthCondition = healthCondition;
+    }
+
+    public BigDecimal getDailyCalorieRequirement() {
         return dailyCalorieRequirement;
     }
 
-    public void setDailyCalorieRequirement(long dailyCalorieRequirement) {
+    public void setDailyCalorieRequirement(BigDecimal dailyCalorieRequirement) {
         this.dailyCalorieRequirement = dailyCalorieRequirement;
+    }
+
+    public String getBmi() {
+        return bmi;
+    }
+
+    public void setBmi(String bmi) {
+        this.bmi = bmi;
     }
 }

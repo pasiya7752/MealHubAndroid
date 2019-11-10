@@ -1,23 +1,10 @@
 package com.example.mealhubandroid.Services;
 
-import android.content.Context;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mealhubandroid.Models.FileInfo;
-import com.example.mealhubandroid.helper.NetworkClient;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-
-import java.io.File;
-
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MenuReaderApiService extends AppCompatActivity {
 
@@ -66,5 +53,3 @@ public class MenuReaderApiService extends AppCompatActivity {
 
 
 }
-
-

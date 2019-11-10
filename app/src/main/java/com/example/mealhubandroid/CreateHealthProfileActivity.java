@@ -1,7 +1,5 @@
 package com.example.mealhubandroid;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,30 +8,17 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.mealhubandroid.DTO.Customer.CustomerRequest;
-import com.example.mealhubandroid.DTO.Customer.CustomerResponse;
 import com.example.mealhubandroid.Models.CustomerVM;
-import com.example.mealhubandroid.Models.MealVM;
-import com.example.mealhubandroid.Models.NutritionDataVM;
 import com.example.mealhubandroid.Services.APIUtils;
-import com.example.mealhubandroid.Services.FileService;
-import com.example.mealhubandroid.Services.SignUpApiService;
 import com.example.mealhubandroid.Services.SignUpService;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.File;
 import java.math.BigDecimal;
-import java.sql.SQLOutput;
-import java.util.List;
 
-import cz.msebera.android.httpclient.Header;
-import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -76,21 +61,38 @@ public class CreateHealthProfileActivity extends AppCompatActivity {
         BigDecimal height1 = new BigDecimal (height.getText().toString());
         BigDecimal weight1 = new BigDecimal (weight.getText().toString());
         String gender1 = gender.getSelectedItem().toString();
+        String activity1 = activity.getSelectedItem().toString();
         String healthConditions1 = healthConditions.getSelectedItem().toString();
-        boolean gend;
-        long resultedCalorieCount;
+        String bmi;
+        BigDecimal resultedCalorieCount = new BigDecimal(0);
+        BigDecimal activityLevel = new BigDecimal(0);
 
-        if(gender1=="Male")
+        switch (activity1)
         {
-            gend=true;
-        }
-        else
-        {
-            gend=false;
+            case "SEDENTARY":
+                activityLevel = BigDecimal.valueOf(1.2);
+                break;
+            case"SLIGHTLY":
+                activityLevel = BigDecimal.valueOf(1.4);
+                break;
+            case"MODERATELY":
+                activityLevel = BigDecimal.valueOf(1.6);
+                break;
+            case"VERY_ACTIVE":
+                activityLevel = BigDecimal.valueOf(1.75);
+                break;
+            case"EXTRA_ACTIVE":
+                activityLevel = BigDecimal.valueOf(2);
+                break;
+            case"PROFESSIONAL_ATHLETE":
+                activityLevel = BigDecimal.valueOf(2.3);
+                break;
         }
 
-        resultedCalorieCount=calculate(age1,height1,weight1,gend);
 
+
+        resultedCalorieCount=calculateCalorieLimit(gender1,weight1,height1,age1,activityLevel);
+        bmi = calculateBMI(weight1,height1);
         System.out.println("Daily Calorie Requirement = "+resultedCalorieCount);
 
 
@@ -101,6 +103,8 @@ public class CreateHealthProfileActivity extends AppCompatActivity {
         customerVM.setGender(gender1);
         customerVM.setHealthCondition(healthConditions1);
         customerVM.setDailyCalorieRequirement(resultedCalorieCount);
+        customerVM.setBmi(bmi);
+        customerVM.setActivityLevel(activity1);
 
         CustomerRequest customerRequest = new CustomerRequest();
         customerRequest.customerVM = customerVM;
@@ -126,19 +130,26 @@ public class CreateHealthProfileActivity extends AppCompatActivity {
 
     }
 
-    public long calculate(int age, BigDecimal height, BigDecimal weight, boolean male) {
+    public BigDecimal calculateCalorieLimit(String gender, BigDecimal weight, BigDecimal height, int age, BigDecimal activityLevel) {
 
-
-
-        if (male) {
-            //66.5 + 13.8 x (Weight in kg) + 5 x (Height in cm); 6.8 x age/
-            return Math.round((66.5 + (13.8 * weight.floatValue()) + (5 * height.floatValue()) - (6.8 * age))*1.76);
+        if (gender.equals("Female")) {
+            //should return 1,172.75 for w-48 h-155 age-23
+            return (weight.multiply(BigDecimal.valueOf(10)).add(height.multiply(BigDecimal.valueOf(6.25))))
+                    .subtract(BigDecimal.valueOf(age*5.0)).subtract(BigDecimal.valueOf(161)).multiply(activityLevel);
         }
+        return (weight.multiply(BigDecimal.valueOf(10)).add(height.multiply(BigDecimal.valueOf(6.25))))
+                .subtract(BigDecimal.valueOf(age*5.0)).add(BigDecimal.valueOf(5)).multiply(activityLevel);
+    }
 
-        else {
-            /* 655.1 + 9.6 x (Weight in kg) + 1.9 x (Height in cm); 4.7 x age*/
-            return Math.round((655.1 + (9.6 * weight.floatValue()) + (1.9 * height.floatValue()) - (4.7 * age))*1.76);
+    public String calculateBMI(BigDecimal weight, BigDecimal height) {
+        BigDecimal bmiValue = weight.divide((height.divide(BigDecimal.valueOf(100)).pow(2)), 3);
+        if (bmiValue.floatValue()<18.5){
+            return "Underweight";
         }
+        else if (bmiValue.floatValue()<=23.0){
+            return "Normal";
+        }
+        return "Overweight";
     }
 
 }

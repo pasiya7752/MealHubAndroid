@@ -1,20 +1,14 @@
 package com.example.mealhubandroid;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.mealhubandroid.Models.NutritionDataVM;
-import com.example.mealhubandroid.Models.ServiceProviderVM;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

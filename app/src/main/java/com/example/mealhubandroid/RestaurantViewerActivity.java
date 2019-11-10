@@ -69,11 +69,7 @@ public class RestaurantViewerActivity extends AppCompatActivity {
         review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RestaurantViewerActivity.this,ReviewPanelActivity.class);
-
-                intent.putExtra("serviceProviderVM", new Gson().toJson(serviceProviderVM));
-
-                startActivity(intent);
+                toReviewPanel();
             }
         });
 
@@ -164,6 +160,15 @@ public class RestaurantViewerActivity extends AppCompatActivity {
 
         }
 
+        }
+
+        public void toReviewPanel()
+        {
+            Intent intent = new Intent(RestaurantViewerActivity.this,ReviewPanelActivity.class);
+
+            intent.putExtra("serviceProviderVM", new Gson().toJson(serviceProviderVM));
+
+            startActivity(intent);
         }
 
 

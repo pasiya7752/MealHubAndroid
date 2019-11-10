@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LogFoodActivity">
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log Food"
+            android:gravity="top"
+            android:textAlignment="center"
+            android:background="#FF3E3F"
+            android:textColor="#FFFFFF"
+            android:textSize="25dp"
+            android:fontFamily="@font/loveyalikeasis"/>
+
+
+            <AutoCompleteTextView
+                android:layout_marginTop="50dp"
+                android:id="@+id/searchFood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:completionThreshold="2"
+                android:hint="Search foods" />
+
+            <LinearLayout
+                android:layout_marginTop="120dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/loveyalikeasis"
+                    android:text="Select Date :"/>
+                <DatePicker
+                    android:id="@+id/datePicker1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:datePickerMode="spinner"/>
+
+                <Button
+                    android:id="@+id/logFoods"
+                    android:layout_marginTop="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFB42A"
+                    android:text="Log"
+                    />
+
+            </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="110dp"
+        android:layout_height="62dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="149dp"
+        android:layout_marginLeft="149dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@drawable/logo" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

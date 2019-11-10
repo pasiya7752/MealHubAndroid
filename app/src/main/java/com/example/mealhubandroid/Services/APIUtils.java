@@ -29,4 +29,18 @@ public class APIUtils {
         return NetworkClient.getRetrofitClient(API_URL).create(RestaurantMealService.class);
     }
 
+    public static ReviewService getReviewService()
+    {
+        return NetworkClient.getRetrofitClient(API_URL).create(ReviewService.class);
+    }
+
+    public static CustomerService getCustomerService()
+    {
+        return NetworkClient.getRetrofitClient(API_URL).create(CustomerService.class);
+    }
+    public static FatSecretService getFatSecretService()
+    {
+        return NetworkClient.getRetrofitClient(API_URL).create(FatSecretService.class);
+    }
+
 }

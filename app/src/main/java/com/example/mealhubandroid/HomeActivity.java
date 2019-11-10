@@ -147,7 +147,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         option4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createHealthProfileOnClick();
+                healthAnalysisMainOnClick();
             }
         });
         logout.setOnClickListener(new View.OnClickListener() {
@@ -252,9 +252,9 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         startActivity(intent);
     }
-    public void createHealthProfileOnClick()
+    public void healthAnalysisMainOnClick()
     {
-        Intent intent = new Intent(HomeActivity.this,CreateHealthProfileActivity.class);
+        Intent intent = new Intent(HomeActivity.this,HealthAnalysisMainActivity.class);
         startActivity(intent);
     }
 

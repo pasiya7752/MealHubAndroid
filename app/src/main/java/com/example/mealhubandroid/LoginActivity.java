@@ -1,6 +1,5 @@
 package com.example.mealhubandroid;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mealhubandroid.DTO.Customer.CustomerRequest;
 import com.example.mealhubandroid.DTO.Customer.LoginRequest;
 import com.example.mealhubandroid.Models.CustomerVM;
 import com.example.mealhubandroid.Services.APIUtils;
@@ -109,12 +107,12 @@ public class LoginActivity extends AppCompatActivity {
                         {
                             SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
                             editor.putString("username",response.body().getUserName());
-                            editor.putString("calorieRequirement",Long.toString(response.body().getDailyCalorieRequirement()));
+                            editor.putString("userId",response.body().getId());
+                            editor.putString("calorieRequirement", String.valueOf(response.body().getDailyCalorieRequirement()));
                             editor.putBoolean("isLoggedIn",true);
                             editor.apply();
                             editor.commit();
                         }
-
                         startActivity(intent);
                     }
                     else {
